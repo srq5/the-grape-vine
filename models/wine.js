@@ -40,14 +40,13 @@ module.exports = function (sequelize, DataTypes) {
         },
         region_1: {
 
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
 
         },
 
         region_2: {
 
-            type: DataTypes.STRING,
-
+            type: DataTypes.STRING
 
         },
 
