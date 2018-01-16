@@ -38,6 +38,15 @@ app.put("api/wines", function (req, res){
 
 });
 
+app.delete("api/wines", )
+
+
+
+
+
+
+
+
 
 
 app.get("/api/users", function (req, res){
