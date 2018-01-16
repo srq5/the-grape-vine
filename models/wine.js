@@ -2,6 +2,12 @@ module.exports = function (sequelize, DataTypes) {
 
     var Wine = sequelize.define("Wine", {
 
+        title: {
+
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
         country: {
 
             type: DataTypes.STRING,
@@ -9,13 +15,6 @@ module.exports = function (sequelize, DataTypes) {
 
         },
         description: {
-
-            type: DataTypes.STRING,
-            allowNull: false
-
-        },
-
-        designation: {
 
             type: DataTypes.STRING,
             allowNull: false
@@ -32,23 +31,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DECIMAL(10, 2)
 
         },
-        province: {
-
-            type: DataTypes.STRING,
-            allowNull: false
-
-        },
-        region_1: {
-
-            type: DataTypes.STRING
-
-        },
-
-        region_2: {
-
-            type: DataTypes.STRING
-
-        },
 
         variety: {
 
@@ -60,7 +42,6 @@ module.exports = function (sequelize, DataTypes) {
         winery: {
 
             type: DataTypes.STRING,
-            allowNull: false
 
         }
 

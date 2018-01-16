@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes){
 
     var User = sequelize.define("User", {
-
+     
         first_name: {
 
             type: DataTypes.STRING,
@@ -37,6 +37,11 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
 
+        }, 
+
+        favorite_wines: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
 
     })
