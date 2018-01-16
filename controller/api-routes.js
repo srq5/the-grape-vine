@@ -46,7 +46,7 @@ app.delete("api/wines", )
 
 
 
-app.get("/api/users", function (req, res){
+app.get("/api/users/:user", function (req, res){
 
 });
 
