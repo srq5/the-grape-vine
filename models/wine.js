@@ -1,9 +1,9 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
     var Wine = sequelize.define("Wine", {
 
         country: {
-            
+
             type: DataTypes.STRING,
             allowNull: false
 
@@ -24,8 +24,12 @@ module.exports = function(sequelize, DataTypes) {
 
         points: {
 
+            type: DataTypes.INTEGER
+
         },
         price: {
+
+            type: DataTypes.DECIMAL(10, 2)
 
         },
         province: {
@@ -37,14 +41,14 @@ module.exports = function(sequelize, DataTypes) {
         region_1: {
 
             type: DataTypes.STRING,
-            allowNull: false
+
 
         },
 
         region_2: {
 
             type: DataTypes.STRING,
-            allowNull: false
+
 
         },
 
@@ -62,17 +66,8 @@ module.exports = function(sequelize, DataTypes) {
 
         }
 
-
-
-
-
-
-
     });
 
     return Wine;
-
-
-
 
 }
