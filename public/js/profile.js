@@ -43,5 +43,12 @@ $("#removeWine").on("click", function(e){
 
 $("#updateReview").on("click", function(e){
 	e.preventdefault();
+	var wineId= $(this).attr("id");
+	//open textbox to accept new review
+
+
+	$.put("/api/wine/"+wineId, function(data){
+		//display new review
+	})
 
 })
