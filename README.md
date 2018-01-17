@@ -16,16 +16,13 @@ Users can:
 
 ### Technologies
 
-1. Sequelize
+1. MySQL
+2. Sequelize
 2. Node/Express
-3. npm packages
-	1.  
-
 
 ### Purpose
 
 This app was created as the second project for the Georgia Tech Coding Bootcamp.
-
 
 ### Future Development
 
