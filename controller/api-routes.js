@@ -88,7 +88,19 @@ app.put("/api/user", function(req, res){
 
 })
 
-app.delete("/api/user", function (req, res){
+//User can only delete from their own profile.
+
+app.delete("/api/user/:username", function (req, res){
+
+    db.User.destroy({
+
+        where: {
+            username: req.params.username
+        }
+        
+    }).then(function(results){
+        res.json(results);
+    });
 
 });
 
