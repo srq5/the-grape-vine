@@ -7,6 +7,10 @@ nav {
 	background-color: #82182c;
 }
 
+.red-wine-text {
+	color: #82182c;
+}
+
 .brand-logo img {
 	height: 45px;
 	margin-top: 5px;
@@ -16,7 +20,7 @@ nav {
     margin: 0 12px;
 }
 
-#nav-mobile li.search .search-wrapper input#wine-name-search {
+#nav-mobile li.search .search-wrapper input#wine-search {
     display: block;
     font-size: 16px;
     font-weight: 300;
@@ -47,4 +51,9 @@ nav .button-collapse {
 	height: 200px;
 	width: auto;
 	text-align: center;
+}
+
+#avatar img {
+	height: 200px;
+	width: auto;
 }
