@@ -39,6 +39,25 @@
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <h1 class="header center">Wine Search App</h1>
+        <div class="row center">
+            <h4 class="header col s12 light center">Some important summary text about the app</h4>
+        </div>
+        <div class="row center">
+            <div class="search-wrapper">
+                <input id="wine-name-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+        </div>
+        <div class="row center">
+            <a href="#" id="create-account" class="btn-large waves-effect waves-light">Create Account</a>
+        </div>
+        <div class="row center">
+            <a href="#" id="sign-in" class="btn-large waves-effect waves-light">Sign In</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section"></div>
+    </div>
     <!-- Minified JQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
@@ -50,11 +69,15 @@
     // Initialize collapse button
     $('.button-collapse').sideNav({
         menuWidth: 300, // Default is 300
-        edge: 'left', // Choose the horizontal origin
+        edge: 'right', // Choose the horizontal origin
         closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
         draggable: true, // Choose whether you can drag to open on touch screens,
         //onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
         //onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
+    });
+    //Materialize select box initialization
+    $(document).ready(function() {
+        $('select').material_select();
     });
     </script>
 </body>

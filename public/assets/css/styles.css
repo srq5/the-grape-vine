@@ -1,3 +1,8 @@
+nav {
+	box-shadow: none;
+	webkit-box-shadow: none;
+}
+
 .red-wine {
 	background-color: #82182c;
 }
@@ -11,7 +16,7 @@
     margin: 0 12px;
 }
 
-#nav-mobile li.search .search-wrapper input#wine-search {
+#nav-mobile li.search .search-wrapper input#wine-name-search {
     display: block;
     font-size: 16px;
     font-weight: 300;
@@ -32,4 +37,14 @@
     top: 2px;
     right: 20px;
     cursor: pointer;
+}
+
+nav .button-collapse {
+    float: right;
+}
+
+.image-container img {
+	height: 200px;
+	width: auto;
+	text-align: center;
 }
