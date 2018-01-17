@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/stevensammon/project-2#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mysql2": "^1.5.1",
     "sequelize": "^4.31.1"
