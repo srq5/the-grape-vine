@@ -47,6 +47,14 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
+    Wine.associate() = function(models){
+        Wine.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Wine;
 
 }

@@ -51,7 +51,7 @@ module.exports = function(sequelize, DataTypes){
         User.hasMany(models.Wine, {
           onDelete: "CASCADE"
         });
-      }
+      };
 
 
 return User;
