@@ -46,12 +46,12 @@ module.exports = function(sequelize, DataTypes){
 
     });
 
-
-    User.associate = function(models){
-        User.hasMany(models.Wine, {
-          onDelete: "CASCADE"
-        });
-      };
+    //add include.
+    // User.associate = function(models){
+    //     User.hasMany(models.Wine, {
+    //       onDelete: "CASCADE"
+    //     });
+    //   };
 
 
 return User;
