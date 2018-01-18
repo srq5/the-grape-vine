@@ -21,7 +21,7 @@ $("#addWine").on("click", function(e){
 	var wineVariety = $("#addFormVariety").val().trim();
 	var wineWinery = $("#adFormWinery").val().trim();
 	//create newWine object
-	var newWine = NewWine(wineTitle,wineCountry,wineDesc,winePrice,winePts,wineVariety,wineWinery);
+	var newWine = new NewWine(wineTitle,wineCountry,wineDesc,winePrice,winePts,wineVariety,wineWinery);
 	//post newWine obj
 	$.post("/api/wines", newWine, function(data){
 		//display new wine
