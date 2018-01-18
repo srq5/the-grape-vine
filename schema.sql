@@ -15,3 +15,5 @@ PRIMARY KEY (id)
 
 
 );
+
+INSERT INTO user VALUES (1, "Steven", "Sammon", "stevenesammon@hotmail.com", "password", "stevensammon", "Carlo & Julian")
