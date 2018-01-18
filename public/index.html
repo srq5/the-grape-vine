@@ -1,9 +1,85 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
 
+<head>
+    <title>Wine Search App</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Custome styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <nav class="red-wine">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><img src="./assets/images/grape-logo.png" alt="grape logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#" id="signInButton">Create User/Sign-in</a></li>
+                <li><a href="profiles.html">User Profile</a></li>
+                <li><a href="reviews.html">Wine Reviews</a></li>
+                <li class="search">
+                    <div class="search-wrapper">
+                        <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                </li>
+            </ul>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#" id="signInButton">Create User/Sign-in</a></li>
+                <li><a href="profiles.html">User Profile</a></li>
+                <li><a href="reviews.html">Wine Reviews</a></li>
+                <li class="search">
+                    <div class="search-wrapper">
+                        <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                </li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <h1 class="header center">Wine Search App</h1>
+        <div class="row center">
+            <h4 class="header col s12 light center">Some important summary text about the app</h4>
+        </div>
+        <div class="row center">
+            <div class="search-wrapper">
+                <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+        </div>
+        <div class="row center">
+            <a href="#" id="createAccount" class="btn-large lime darken-3">Create Account</a>
+        </div>
+        <div class="row center">
+            <a href="#" id="signInButton" class="btn-large lime darken-3">Sign In</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section"></div>
+    </div>
+    <!-- Minified JQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Custom Javascript files -->
+    <script type="text/javascript" src="./assets/js/index.js"></script>
+    <script type="text/javascript" src="./assets/js/reviews.js"></script>
+    <script type="text/javascript">
+    // Initialize collapse button
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true, // Choose whether you can drag to open on touch screens,
+        //onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
+        //onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
+    });
+    //Materialize select box initialization
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+    </script>
 </body>
+
 </html>
