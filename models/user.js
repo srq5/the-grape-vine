@@ -1,58 +1,60 @@
-module.exports = function(sequelize, DataTypes){
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var User = sequelize.define('User', {
+    first_name: {
+      
+      type: DataTypes.STRING,
+      allowNull: false
 
-    var User = sequelize.define("User", {
-     
-        first_name: {
+    },
+    
+    last_name: {
+      
+      type: DataTypes.STRING,
+      allowNull: false
 
-            type: DataTypes.STRING,
-            allowNull: false
+    },
+    
+    email: {
+      
+      type: DataTypes.STRING,
+      
+      validate: {
+        isEmail: true
+      }
+    },
+    
+    password: DataTypes.STRING,
+    
+    username: {
+      
+      type: DataTypes.STRING,
+      allowNull: false
 
-        },
+    },
+    
+    favorite_wine: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  },
+  {
+    timestamps: false
+  },
 
-        last_name: {
-
-            type: DataTypes.STRING,
-            allowNull: false
-
-        },
-        email: {
-
-            type: DataTypes.STRING,
-
-
-            validate: {
-                isEmail: true
-            }
-        
-
-        },
-        password: {
-
-            type: DataTypes.STRING
-            
-
-        },
-        username: {
-
-            type: DataTypes.STRING,
-            allowNull: false
-
-        }, 
-
-        favorite_wines: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
-
-    });
-
-    //add include.
+   {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+         //add include.
     // User.associate = function(models){
     //     User.hasMany(models.Wine, {
     //       onDelete: "CASCADE"
     //     });
     //   };
+      }
+    }
+  });
+  return User;
+};
 
-
-return User;
-}

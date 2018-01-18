@@ -1,51 +1,44 @@
-module.exports = function (sequelize, DataTypes) {
+'use strict';
+module.exports = (sequelize, DataTypes) => {
 
-    var Wine = sequelize.define("Wine", {
+  var Wine = sequelize.define('Wine', {
 
-        title: {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
 
-        country: {
+    points: {
+      type: DataTypes.INTEGER
+    },
 
-            type: DataTypes.STRING,
-            allowNull: false
+    price: {
+      type: DataTypes.DECIMAL
+    },
 
-        },
-        description: {
+    variety: {
+    type: DataTypes.STRING,
+    allowNull: false
+    },
 
-            type: DataTypes.STRING,
-            allowNull: false
-
-        },
-
-        points: {
-
-            type: DataTypes.INTEGER
-
-        },
-        price: {
-
-            type: DataTypes.DECIMAL(10, 2)
-
-        },
-
-        variety: {
-
-            type: DataTypes.STRING,
-            allowNull: false
-
-        },
-
-        winery: {
-
-            type: DataTypes.STRING,
-
-        }
-
-    });
+    winery: {
+      type: DataTypes.STRING
+    }
+  },{
+    timestamps: false
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
 
     // Wine.associate() = function(models){
     //     Wine.belongsTo(models.User, {
@@ -54,7 +47,9 @@ module.exports = function (sequelize, DataTypes) {
     //         }
     //     });
     // };
+      }
+    }
+  });
+  return Wine;
+};
 
-    return Wine;
-
-}
