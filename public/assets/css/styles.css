@@ -57,3 +57,13 @@ nav .button-collapse {
 	height: 200px;
 	width: auto;
 }
+
+.card {
+	background-color: #eee;
+}
+
+.card .card-image span.card-title {
+	text-transform: uppercase;
+	font-weight: 400;
+	padding: 0px 4px;	
+}
