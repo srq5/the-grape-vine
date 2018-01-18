@@ -22,7 +22,7 @@
 	switch(searchParam){
 
 		case "wine":
-			var searchInput = $("#search").val().trim();
+			var searchInput = $("#wine-search").val().trim();
 			//code to get wine info from database
 			$.get("/api/wines/"+searchInput, function(data){
 				//code to handle what happens if wine not found
@@ -42,7 +42,7 @@
 			break;
 
 		case "variety":
-			var searchInput = $("#search").val().trim();
+			var searchInput = $("#wine-search").val().trim();
 			$.get("/api/variety/"+searchInput, function(data){
 				if(!data){
 					window.prompt("Would you like to add a wine of this varietal?");
@@ -55,7 +55,7 @@
 			break;
 
 					case "country":
-			var searchInput = $("#search").val().trim();
+			var searchInput = $("#wine-search").val().trim();
 			$.get("/api/country/"+searchInput, function(data){
 				if(!data){
 					window.prompt("Would you like to add a wine from this country?");
