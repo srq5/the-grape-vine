@@ -1,4 +1,10 @@
-
+function User(firstName, lastName,username,password,email){
+	this.firstName= firstName,
+	this.lastName = lastName,
+	this.username=username,
+	this.password=password,
+	this.email=email
+}
 
 //code to handle what happens after the user clicks the  sign in button
 	$("#signInButton").on("click", function(e){
@@ -12,9 +18,29 @@
 	});//ends sign in button click function
 
 //code to handle what happens if user clicks on create account
-	$("#createAcct").on("click", function(e){
-		e.preventDefault();
+	$("#createAcctModal").modal({
+		//callback function to run when modal is open
+		 ready: function(createAcctModal){
+      $("#createAcctForm").submit(function(e){
+        e.preventDefault();
+        var firstName = $("#firstName").val().trim();
+        var lastName = $("#lastName").val().trim();
+        var username = $("#username").val().trim();
+        var password = $("#password").val().trim();
+        var email = $("#email").val().trim();
+        var newUser = new User(firstName,lastName,username,password,email);
+
+        $.post("/api/users", newUser,  function(data){
+        	console.log("post succesful");
+        	//code to display new user profile
+        	$.get("/api/users"+username,function(data){
+        		//actually display profile
+        	})
+        })
+      })
+    }
 		//code to display modal with form or open page with form
+
 	})
 	
 //code to happen if user does a search
