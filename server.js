@@ -17,7 +17,7 @@ app.use(express.static("public"));
 require("./controller/api-routes.js")(app);
 require("./controller/html-routes.js")(app);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
 	app.listen(PORT, function(){
 		console.log("Listening on PORT" + PORT);
 	});
