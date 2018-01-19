@@ -9,6 +9,27 @@ app.get("/api/wines", function(req, res){
 
 });
 
+
+app.get("/api/variety/:variety", function(req, res){
+    db.Wine.findAll({
+        where:{
+            variety: req.params.variety
+        }
+    }).then(function(results){
+        res.json(results);
+    });
+});
+
+app.get("/api/country/:country", function(req, res){
+    db.Wine.findAll({
+        where: {
+            country: req.params.country
+        }
+    }).then(function(results){
+        res.json(results);
+    });
+});
+
 app.post("api/wines", function(req, res){
 
     db.Wine.create({
@@ -29,22 +50,54 @@ app.post("api/wines", function(req, res){
 });
 
 
-app.put("api/wines", function (req, res){
-
+app.put("/api/wines", function (req, res){
+    db.Wine.update({
+        title: req.body.title,
+        country: req.body.country,
+        description: req.body.description,
+        price: req.body.price,
+        points: req.body.points,
+        variety: req.body.variety,
+        winery: req.body.winery
+    }, {
+        where: {
+            id: req.body.id
+        }
+    }).then(function(results){
+        res.json(results);
+    });
     
 
 });
 
-app.delete("api/wines", )
+app.get("api/wines/:id", function(req, res){
+    db.Wine.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results){
+    res.json(results);
+    })
+})
 
+app.delete("/api/wines/:id", function(req, res){
+    db.Wine.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results){
+        res.json(results);
+    });
+});
 
+app.get("/api/user/:id", function(req, res){
 
+    db.#.findAll({
 
+        where: 
+    })
 
-
-
-
-
+})
 
 app.get("/api/user/:username", function (req, res){
 
@@ -66,7 +119,7 @@ app.post("api/user", function (req, res){
         email: req.body.email,
         password: req.body.password,
         username: req.body.username,
-        favorite_wines: req.body.favorite_wines
+       
     }).then(function(results){
         res.json(results);
     });
@@ -81,7 +134,6 @@ app.put("/api/user", function(req, res){
         email: req.body.email,
         password: req.body.password,
         username: req.body.username,
-        favorite_wines: req.body.favorite_wines
     }).then(function(results){
         res.json(results);
     });
