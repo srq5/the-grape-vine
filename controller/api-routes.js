@@ -70,24 +70,34 @@ app.put("/api/wines", function (req, res){
 
 });
 
+app.get("api/wines/:id", function(req, res){
+    db.Wine.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results){
+    res.json(results);
+    })
+})
+
 app.delete("/api/wines/:id", function(req, res){
     db.Wine.destroy({
         where: {
             id: req.params.id
         }
     }).then(function(results){
-        response.json(results);
+        res.json(results);
     });
 });
 
+app.get("/api/user/:id", function(req, res){
 
+    db.#.findAll({
 
+        where: 
+    })
 
-
-
-
-
-
+})
 
 app.get("/api/user/:username", function (req, res){
 
@@ -109,7 +119,7 @@ app.post("api/user", function (req, res){
         email: req.body.email,
         password: req.body.password,
         username: req.body.username,
-        favorite_wines: req.body.favorite_wines
+       
     }).then(function(results){
         res.json(results);
     });
@@ -124,7 +134,6 @@ app.put("/api/user", function(req, res){
         email: req.body.email,
         password: req.body.password,
         username: req.body.username,
-        favorite_wines: req.body.favorite_wines
     }).then(function(results){
         res.json(results);
     });
