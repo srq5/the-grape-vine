@@ -1,8 +1,3 @@
-
-
-//### PLEASE EDIT THIS FILE WITHIN THE 'model' BRANCH!
-
-
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -22,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-// Static directory
 app.use(express.static("public"));
 
 require("./controller/api-routes.js")(app);

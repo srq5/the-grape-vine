@@ -28,11 +28,8 @@ module.exports = {
       username: {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      favorite_wine: {
-        type: Sequelize.STRING,
-        allowNull: false
       }
+      
      
     });
   },

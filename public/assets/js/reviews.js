@@ -1,4 +1,5 @@
 //code to pull latest wine reviews from database (maybe 10?)
+
 $.get("/api/reviews",function(data){
 	//code to display them on page
 
@@ -12,3 +13,4 @@ $.get("/api/reviews",function(data){
 	//open modal maybe (to keep the user on one page) with all the reviews
 	});
 	});
+

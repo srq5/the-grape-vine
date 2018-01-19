@@ -35,14 +35,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   },{
     timestamps: false
-  }, {
-    classMethods: {
-      associate: function(models) {
+  }); 
+      Wine.associate = function(models) {
         // associations can be defined here
-
-      }
-    }
-  });
+        Wine.belongsToMany(models.User, { 
+          through: models.UserWine 
+        });
+      };
+    
+  
   return Wine;
 };
 

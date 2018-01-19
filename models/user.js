@@ -31,26 +31,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
 
-    },
-    
-    favorite_wine: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   },
   {
     timestamps: false
-  },
-
-   {
-    classMethods: {
-      associate: function(models) {
-        User.hasMany(models.Review, {
-          onDelete: 'CASCADE'
-        });
-      }
-    }
   });
+
+  User.associate = function(models) {
+    User.hasMany(models.Review, {
+      onDelete: 'CASCADE'
+    });
+    User.belongsToMany(models.Wine, {
+      through: models.UserWine 
+    });
+  };
+
   return User;
 };
 
