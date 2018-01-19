@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        Review.belongsTo(models.User, {
+
+        });
+        Review.belongTo(models.Wine, {
+
+        });
       }
     }
   });

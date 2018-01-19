@@ -45,13 +45,9 @@ module.exports = (sequelize, DataTypes) => {
    {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
-         //add include.
-    // User.associate = function(models){
-    //     User.hasMany(models.Wine, {
-    //       onDelete: "CASCADE"
-    //     });
-    //   };
+        User.hasMany(models.Review, {
+          onDelete: 'CASCADE'
+        });
       }
     }
   });

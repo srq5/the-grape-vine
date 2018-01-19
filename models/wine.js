@@ -40,13 +40,6 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         // associations can be defined here
 
-    // Wine.associate() = function(models){
-    //     Wine.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
       }
     }
   });
