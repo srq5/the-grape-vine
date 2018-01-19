@@ -12,18 +12,18 @@ module.exports = (sequelize, DataTypes) => {
 
   }, {
     timestamps: false
-  },{
-    classMethods: {
-      associate: function(models) {
+  });
+    
+      Review.associate = function(models) {
         // associations can be defined here
         Review.belongsTo(models.User, {
-
+          onDelete: 'CASCADE'
         });
-        Review.belongTo(models.Wine, {
-
+        Review.belongsTo(models.Wine, {
+          onDelete: 'CASCADE'
         });
-      }
-    }
-  });
+      
+    };
+  
   return Review;
 };
