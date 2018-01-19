@@ -1,10 +1,15 @@
 var db = require("../models");
 
+
+module.exports =function(app){
+    
 app.get("/api/wines", function(req, res){
 
     db.Wine.findAll().then(function(results){
         res.json(results);
-    })
+        //render in reviews page
+        res.render("reviews", {wines:results});
+    });
 
 
 });
@@ -17,6 +22,7 @@ app.get("/api/variety/:variety", function(req, res){
         }
     }).then(function(results){
         res.json(results);
+        //render in reviews page
     });
 });
 
@@ -27,6 +33,7 @@ app.get("/api/country/:country", function(req, res){
         }
     }).then(function(results){
         res.json(results);
+        //render in reviews page
     });
 });
 
@@ -45,6 +52,7 @@ app.post("api/wines", function(req, res){
 
     }).then(function(results){
         res.json(results);
+        //render in reviews page
     });
 
 });
@@ -65,6 +73,8 @@ app.put("/api/wines", function (req, res){
         }
     }).then(function(results){
         res.json(results);
+        //render in reviews page
+
     });
     
 
@@ -77,6 +87,7 @@ app.get("api/wines/:id", function(req, res){
         }
     }).then(function(results){
     res.json(results);
+    //render in reviews page
     })
 })
 
@@ -90,14 +101,14 @@ app.delete("/api/wines/:id", function(req, res){
     });
 });
 
-app.get("/api/user/:id", function(req, res){
+// app.get("/api/user/:id", function(req, res){
 
-    db.#.findAll({
+//     db.#.findAll({
 
-        where: 
-    })
+//         where: 
+//     })
 
-})
+// })
 
 app.get("/api/user/:username", function (req, res){
 
@@ -107,6 +118,7 @@ app.get("/api/user/:username", function (req, res){
         }
     }).then(function(results){
         res.json(results);
+        //render in profile page
     });
 
 });
@@ -155,4 +167,4 @@ app.delete("/api/user/:username", function (req, res){
     });
 
 });
-
+}

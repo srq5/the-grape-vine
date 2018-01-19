@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wine Search App</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Custome styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <nav class="red-wine">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><img src="./assets/images/grape-logo.png" alt="grape logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#" id="signInButton">Create User/Sign-in</a></li>
+                <li><a href="profiles.html">User Profile</a></li>
+                <li><a href="reviews.html">Wine Reviews</a></li>
+                <li class="search">
+                    <div class="search-wrapper">
+                        <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                </li>
+            </ul>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#" id="signInButton">Create User/Sign-in</a></li>
+                <li><a href="profiles.html">User Profile</a></li>
+                <li><a href="reviews.html">Wine Reviews</a></li>
+                <li class="search">
+                    <div class="search-wrapper">
+                        <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                </li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="section"></div>
+        <div class="row">
+            <div class="center user-profile">
+                <div id="avatar"><img src="./assets/images/profile-placeholder.jpg"></div>
+                <div class="user-name"><span id="first_name">First Name</span><span> </span><span id="last_name">Last Name</span></div>
+                <div class="email"><span id="email">sample.email@gmail.com</span></div>
+            </div>
+        </div>
+        <div class="section"></div>
+		<div class="row center">
+			<button id="addWine" class="white-text lime darken-3 btn">Add Wine</button>
+			<button id="removeWine" class="white-text lime darken-3 btn">Remove Wine</button>
+		</div>
+
+        <div class="section"></div>
+        <div class="row">
+            {{#each wines}}
+            <div class="col l4 reviewsClass">
+                <div class="image-container"><img src="./assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
+                <h4 class="wine-title">{{title}}</h4>
+                <h5 class="wine-type">{{varietal}}</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            {{/each}}
+            <div class="col l4 reviewsClass">
+                <div class="image-container"><img src="./assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
+                <h4 class="wine-title">Wine Title</h4>
+                <h5 class="wine-type">Varietal</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="col l4 reviewsClass">
+                <div class="image-container"><img src="./assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
+                <h4 class="wine-title">Wine Title</h4>
+                <h5 class="wine-type">Varietal</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Minified JQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Custom Javascript files -->
+    <script type="text/javascript" src="./assets/js/index.js"></script>
+    <script type="text/javascript" src="./assets/js/reviews.js"></script>
+    <script type="text/javascript">
+    // Initialize collapse button
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true, // Choose whether you can drag to open on touch screens,
+        //onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
+        //onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
+    });
+    </script>
+</body>
+
+</html>
