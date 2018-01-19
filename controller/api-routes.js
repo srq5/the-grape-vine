@@ -1,20 +1,25 @@
 var db = require("../models");
 
 
+
+
+
 module.exports =function(app){
     
 app.get("/reviews", function(req, res){
 
     db.Wine.findAll({
-
-        where: {
+      where: {
             points: gt(99)
         }
+
+       
     })
     
     .then(function(results){
         //render in reviews page
         res.render("reviews", {wines:results});
+
     });
 
 
@@ -55,6 +60,7 @@ app.get("/reviews", function(req, res){
 //         winery: req.body.winery,
         
 
+
 //     }).then(function(results){
 //         res.json(results);
 //         //render in reviews page
@@ -83,6 +89,7 @@ app.get("/reviews", function(req, res){
 //     });
     
 
+
 // });
 
 // app.get("api/wines/:id", function(req, res){
@@ -91,12 +98,34 @@ app.get("/reviews", function(req, res){
 //             id: req.params.id
 //         },
 
+
 //         include: [db.Review]
 //     }).then(function(results){
 //     res.json(results);
 //     //render in reviews page
 //     })
 // })
+
+app.put("/api/wines", function (req, res){
+    db.Wine.update({
+        title: req.body.title,
+        country: req.body.country,
+        description: req.body.description,
+        price: req.body.price,
+        points: req.body.points,
+        variety: req.body.variety,
+        winery: req.body.winery
+    }, {
+        where: {
+            id: req.body.id
+        }
+    }).then(function(results){
+        res.json(results);
+        //render in reviews page
+
+    });
+    
+
 
 // app.delete("/api/wines/:id", function(req, res){
 //     db.Wine.destroy({
@@ -108,9 +137,12 @@ app.get("/reviews", function(req, res){
 //     });
 // });
 
+
 // app.get("/api/user/:id", function(req, res){
 
+
 //     db.#.findAll({
+
 
 //         where: 
 //     })
@@ -126,12 +158,24 @@ app.get("/reviews", function(req, res){
 //         include: [db.Wine],
 //         include: [db.Review]
 
+// app.get("/api/user/:id", function(req, res){
+
+//     db.#.findAll({
+
+//         where: 
+//     })
+
+// })
+
+
 //     }).then(function(results){
 //         res.json(results);
 //         //render in profile page
 //     });
 
+
 // });
+
 
 // app.post("api/user", function (req, res){
 
@@ -172,9 +216,11 @@ app.get("/reviews", function(req, res){
 //             username: req.params.username
 //         }
         
+
 //     }).then(function(results){
 //         res.json(results);
 //     });
 
 // });
 }
+

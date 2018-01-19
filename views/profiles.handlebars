@@ -1,0 +1,27 @@
+    <div class="container">
+        <div class="section"></div>
+        <div class="row">
+            <div class="center user-profile">
+                <div id="avatar"><img src="../../public/assets/images/profile-placeholder.jpg"></div>
+                <div class="user-name"><span id="first_name">{{first_name}}</span><span> </span><span id="last_name">{{last_name}}</span></div>
+                <div class="email"><span id="email">{{email}}</span></div>
+            </div>
+        </div>
+        <div class="section"></div>
+		<div class="row center">
+			<button id="addWine" class="white-text lime darken-3 btn">Add Wine</button>
+			<button id="removeWine" class="white-text lime darken-3 btn">Remove Wine</button>
+		</div>
+
+        <div class="section"></div>
+        <div class="row">
+            {{#each wines}}
+            <div class="col l4 reviewsClass">
+                <div class="image-container"><img src="../../public/assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
+                <h4 class="wine-title">{{title}}</h4>
+                <h5 class="wine-type">{{variety}}</h5>
+                <p>{{description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "#",
+    "database": "wine_db",
     "host": "localhost",
     "dialect": "mysql"
   },
