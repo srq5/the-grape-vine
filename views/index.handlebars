@@ -1,0 +1,65 @@
+    <div class="section no-pad-bot" id="index-banner">
+        <h1 class="header center">Wine Search App</h1>
+        <div class="row center">
+            <h4 class="header col s12 light center">Some important summary text about the app</h4>
+        </div>
+        <div class="row center">
+            <div class="search-wrapper">
+                <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+        </div>
+        <div class="row center">
+            <a class="waves-effect waves-light btn-large lime darken-3 modal-trigger" id="createAccount" href="#createAcctModal">Create Account</a>
+        </div>
+        <div class="row center">
+            <a href="#" id="signInButton" class="btn-large lime darken-3">Sign In</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section"></div>
+    </div>
+
+    <!--create account modal-->
+  <!-- Modal Structure -->
+  <div id="createAcctModal" class="modal">
+    <div class="modal-content">
+      <h4>Create An Account</h4>
+      <div class="row">
+    <form class="col s12" id="createAcctForm" action="/api/users" method="POST">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Alan" id="firstName" type="text" class="validate">
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Breck" id="lastName" type="text" class="validate">
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    
+
+    </form>
+  </div>
+        
+    </div>
+    <div class="modal-footer">
+      <button  type= "submit"  form= "createAcctForm" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+    </div>
+  </div>
