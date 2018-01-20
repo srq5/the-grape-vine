@@ -19,3 +19,47 @@
             </div>
         </div>
     </div>
+
+    <!--create account modal-->
+  <!-- Modal Structure -->
+  <div id="createAcctModal" class="modal">
+    <div class="modal-content">
+      <h4>Create An Account</h4>
+      <div class="row">
+    <form class="col s12" id="createAcctForm" action="/api/users" method="POST">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Alan" id="firstName" type="text" class="validate">
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Breck" id="lastName" type="text" class="validate">
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+        
+  </div>
+    <div class="modal-footer">
+      <button  type= "submit"  form= "createAcctForm" href="#!" class="modal-action modal-close teal text-lighten-1 btn-flat">Submit</button>
+    </div>
+  </div>
