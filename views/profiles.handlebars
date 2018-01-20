@@ -2,14 +2,14 @@
         <div class="section"></div>
         <div class="row">
             <div class="center user-profile">
-                <div id="avatar"><img src="../../public/assets/images/profile-placeholder.jpg"></div>
-                <div class="user-name"><span id="first_name">{{first_name}}</span><span> </span><span id="last_name">{{last_name}}</span></div>
-                <div class="email"><span id="email">{{email}}</span></div>
+                <div id="avatar"><img src=".../public/assets/images/profile-placeholder.jpg"></div>
+                <div class="user-name"><span id="first_name">{{this.first_name}}</span><span> </span><span id="last_name">{{this.last_name}}</span></div>
+                <div class="email"><span id="email">{{this.email}}</span></div>
             </div>
         </div>
         <div class="section"></div>
 		<div class="row center">
-			<button id="addWine" class="white-text lime darken-3 btn">Add Wine</button>
+			<button id="addWine" class="white-text lime darken-3 btn modal-trigger" href="#addWineModal">Add Wine</button>
 			<button id="removeWine" class="white-text lime darken-3 btn">Remove Wine</button>
 		</div>
 
@@ -18,10 +18,65 @@
             {{#each wines}}
             <div class="col l4 reviewsClass">
                 <div class="image-container"><img src="../../public/assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
-                <h4 class="wine-title">{{title}}</h4>
-                <h5 class="wine-type">{{variety}}</h5>
-                <p>{{description}}</p>
+                <h4 class="wine-title">{{this.title}}</h4>
+                <h5 class="wine-type">{{this.variety}}</h5>
+                <p>{{this.description}}</p>
             </div>
             {{/each}}
         </div>
     </div>
+
+
+    <!--add wine modal-->
+  <!-- Modal Structure -->
+  <div id="addWineModal" class="modal">
+    <div class="modal-content">
+      <h4>Add New Wine</h4>
+      <div class="row">
+    <form class="col s12" id="addWineForm" action="/api/users" method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="title" type="text" class="validate">
+          <label for="title">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="country" type="text" class="validate">
+          <label for="country">Country</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="description" type="text" class="validate">
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="price" type="text" class="validate">
+          <label for="price">Price</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="points" type="text" class="validate">
+          <label for="points">Points</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="winery" type="text" class="validate">
+          <label for="winery">Winery</label>
+        </div>
+      </div>
+    
+
+    </form>
+  </div>
+        
+    </div>
+    <div class="modal-footer">
+      <button  type= "submit"  form= "addWineForm" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+    </div>
+  </div>

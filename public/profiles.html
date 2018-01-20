@@ -59,9 +59,9 @@
             {{#each wines}}
             <div class="col l4 reviewsClass">
                 <div class="image-container"><img src="./assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
-                <h4 class="wine-title">{{title}}</h4>
-                <h5 class="wine-type">{{varietal}}</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h4 class="wine-title">{{this.title}}</h4>
+                <h5 class="wine-type">{{this.varietal}}</h5>
+                <p>{{this.description}}</p>
             </div>
             {{/each}}
             <div class="col l4 reviewsClass">
