@@ -11,7 +11,7 @@
             <a class="waves-effect waves-light btn-large lime darken-3 modal-trigger" id="createAccount" href="#createAcctModal">Create Account</a>
         </div>
         <div class="row center">
-            <a href="#" id="signInButton" class="btn-large lime darken-3">Sign In</a>
+            <a id="signInButton" class="btn-large lime darken-3 modal-trigger" href="#signInModal">Sign In</a>
         </div>
     </div>
     <div class="container">
@@ -61,5 +61,35 @@
     </div>
     <div class="modal-footer">
       <button  type= "submit"  form= "createAcctForm" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
+    </div>
+  </div>
+
+   <!--sign in modal-->
+  <!-- Modal Structure -->
+  <div id="signInModal" class="modal">
+    <div class="modal-content">
+      <h4>Log In</h4>
+      <div class="row">
+    <form class="col s12" id="signInForm">
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+    </form>
+  </div>
+        
+    </div>
+    <div class="modal-footer">
+      <button  type= "submit"  form= "signInForm" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Enter</button>
     </div>
   </div>
