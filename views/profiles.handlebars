@@ -2,25 +2,31 @@
         <div class="section"></div>
         <div class="row">
             <div class="center user-profile">
-                <div id="avatar"><img src="../../public/assets/images/profile-placeholder.jpg"></div>
+                <div id="avatar"><img src="./assets/images/profile-placeholder.jpg"></div>
                 <div class="user-name"><span id="first_name">{{first_name}}</span><span> </span><span id="last_name">{{last_name}}</span></div>
                 <div class="email"><span id="email">{{email}}</span></div>
             </div>
         </div>
         <div class="section"></div>
 		<div class="row center">
-			<button id="addWine" class="white-text lime darken-3 btn">Add Wine</button>
-			<button id="removeWine" class="white-text lime darken-3 btn">Remove Wine</button>
+			<button id="addWine" class="white-text teal lighten-1 btn">Add Wine</button>
 		</div>
 
         <div class="section"></div>
         <div class="row">
             {{#each wines}}
-            <div class="col l4 reviewsClass">
-                <div class="image-container"><img src="../../public/assets/images/bottle-placeholder.jpg" alt="image placeholder"></div>
-                <h4 class="wine-title">{{title}}</h4>
-                <h5 class="wine-type">{{variety}}</h5>
-                <p>{{description}}</p>
+            <div class="col l4 m6 reviewsClass">
+                <div class="card">
+                    <div class="card-image"><img src="./assets/images/bottle-placeholder.png" alt="image placeholder">
+                        <span class="card-title">{{this.title}}</span>
+                    </div>
+                    <div class="card-content">
+                        <h5 class="wine-type">{{this.variety}}</h5>
+                        <p>{{this.description}}</p>
+                        <button id="update-{{this.id}}" class="white-text teal lighten-1 btn">Update Wine</button>
+                        <button id="remove-{{this.id}}" class="white-text teal lighten-1 btn">Remove Wine</button>
+                    </div>
+                </div>
             </div>
             {{/each}}
         </div>

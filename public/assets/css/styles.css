@@ -1,19 +1,55 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 nav {
-	box-shadow: none;
-	webkit-box-shadow: none;
+    box-shadow: none;
+    webkit-box-shadow: none;
 }
 
 .red-wine {
-	background-color: #82182c;
+    background-color: #82182c;
 }
 
 .red-wine-text {
-	color: #82182c;
+    color: #82182c;
 }
 
-.brand-logo img {
-	height: 45px;
-	margin-top: 5px;
+a.brand-logo img {
+    height: 45px;
+    width: auto;
+    vertical-align: text-bottom;
+}
+
+a.brand-logo {
+    font-family: 'Merriwether', serif;
+}
+
+@media (min-width: 992px) {
+    .header.brand-logo {
+        font-family: 'Merriwether', serif;
+        font-size: 9rem;
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header.brand-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    h4.header {
+        font-size: 2rem;
+        text-align: center;
+    }
 }
 
 #nav-mobile li.search .search-wrapper {
@@ -31,7 +67,7 @@ nav {
     box-sizing: border-box;
     padding: 0 45px 0 15px;
     border: 0;
-	border-radius: 20px;
+    border-radius: 20px;
     background-color: white;
     color: black;
 }
@@ -47,23 +83,56 @@ nav .button-collapse {
     float: right;
 }
 
+@media (min-width: 992px) {
+    #index-banner {
+        background: url(../images/wine-bottles-banner.jpg) no-repeat #82182c;
+        color: white;
+        height: 100vh;
+        background-size: 100% 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    #index-banner {
+        background: #82182c;
+        color: white;
+        height: 100vh;
+    }
+}
+
+@media (min-width: 992px) {
+    #homepage-fade {
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        margin-top: -15px;
+    }
+}
+
+@media (min-width: 992px) {
+    #desktop-search {
+        display: none;
+    }
+}
+
 .image-container img {
-	height: 200px;
-	width: auto;
-	text-align: center;
+    height: 200px;
+    width: auto;
+    text-align: center;
 }
 
 #avatar img {
-	height: 200px;
-	width: auto;
+    height: 200px;
+    width: auto;
 }
 
 .card {
-	background-color: #eee;
+    background-color: #eee;
 }
 
 .card .card-image span.card-title {
-	text-transform: uppercase;
-	font-weight: 400;
-	padding: 0px 4px;	
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 0px 4px;
 }
