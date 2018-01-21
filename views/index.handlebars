@@ -1,20 +1,20 @@
     <div class="section no-pad-bot" id="index-banner">
-        <div id="homepage-wrapper">
+        <div id="homepage-fade">
             <div class="container">
                 <h1 class="header brand-logo">The GrapeVine</h1>
                 <div class="row">
                     <h4 class="header col s12 light">A place to save your favorite wines...and everyone else's.</h4>
                 </div>
                 <div class="section"></div>
-                <div id="desktop-search" class="row center">
+<!--                <div id="desktop-search" class="row center">
                     <div class="search-wrapper">
                         <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                </div> -->
+                <div class="row center">
+                    <a href="#createAcctModal" id="createAccount" class="btn-large teal lighten-1">Create Account</a>
                 </div>
                 <div class="row center">
-                    <a href="#" id="createAccount" class="btn-large teal lighten-1">Create Account</a>
-                </div>
-                <div class="row center">
-                    <a href="#" id="signInButton" class="btn-large teal lighten-1">Sign In</a>
+                    <a href="#signInModal" id="signIn" class="btn-large teal lighten-1">Sign In</a>
                 </div>
             </div>
         </div>
@@ -61,5 +61,33 @@
   </div>
     <div class="modal-footer">
       <button  type= "submit"  form= "createAcctForm" href="#!" class="modal-action modal-close teal text-lighten-1 btn-flat">Submit</button>
+    </div>
+  </div>
+
+    <!--sign in modal-->
+  <!-- Modal Structure -->
+  <div id="signInModal" class="modal">
+    <div class="modal-content">
+      <h4>Sign In</h4>
+      <div class="row">
+    <form class="col s12" id="signInForm" action="/profile" method="GET">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="signInInput" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="signInPassword" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+    </form>
+  </div>
+        
+  </div>
+    <div class="modal-footer">
+      <button  type= "submit"  id="signInButton" form= "signInForm" href="#!" class="modal-action modal-close teal text-lighten-1 btn-flat">Submit</button>
     </div>
   </div>

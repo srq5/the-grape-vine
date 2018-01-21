@@ -5,7 +5,7 @@
     <title>Wine Search App</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Euphoria+Script|Parisienne|Zeyada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <!--Import materialize.css-->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -16,31 +16,86 @@
 </head>
 
 <body>
-    <nav class="red-wine">
-        <div class="nav-wrapper">
-            <a href="/" class="brand-logo"><img src="./assets/images/grape-logo.png" alt="grape logo">The GrapeVine</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#" id="signInButton">Create User/Sign-in</a></li>
-                <li><a href="/profile">User Profile</a></li>
-                <li><a href="/reviews">Wine Reviews</a></li>
-                <li class="search">
-                    <div class="search-wrapper">
-                        <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
-                </li>
-            </ul>
-            <ul id="slide-out" class="side-nav">
-                <li><a href="#" id="signInButton">Create User/Sign-in</a></li>
-                <li><a href="/profile">User Profile</a></li>
-                <li><a href="/reviews">Wine Reviews</a></li>
-                <li class="search">
-                    <div class="search-wrapper">
-                        <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
-                </li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
+    <header>
+        <nav class="red-wine">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo"><img src="./assets/images/finest-wine-stamp.png" alt="grape logo stamp"><span>The GrapeVine</span></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#navSignInModal" id="navSignIn">Create User/Sign-in</a></li>
+                    <li><a href="/profile">User Profile</a></li>
+                    <li><a href="/reviews">Wine Reviews</a></li>
+                    <li class="search">
+                        <div class="search-wrapper">
+                            <input id="wine-search" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                    </li>
+                </ul>
+                <ul id="slide-out" class="side-nav">
+                    <li><a href="#navSignInModal" id="navSignInMobile">Create User/Sign-in</a></li>
+                    <li><a href="/profile">User Profile</a></li>
+                    <li><a href="/reviews">Wine Reviews</a></li>
+                    <li class="search">
+                        <div class="search-wrapper">
+                            <input id="wine-search-mobile" class="search" placeholder="Search wines..."><i class="material-icons grey-text text-lighten-2">search</i></div>
+                    </li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
     {{{ body }}}
+    </main>
+
+    <footer class="page-footer red-wine white-text center">
+        <div class="footer-copyright">
+            <div class="container">© 2018 JOSS</div>
+        </div>
+    </footer>
+
+    <!--create account modal-->
+  <!-- Modal Structure -->
+  <div id="navSignInModal" class="modal">
+    <div class="modal-content">
+      <h4>Create An Account</h4>
+      <div class="row">
+    <form class="col s12" id="navCreateAcctForm" action="/api/users" method="POST">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Alan" id="navFirstName" type="text" class="validate">
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Breck" id="navLastName" type="text" class="validate">
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="navUsername" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="navPassword" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="navEmail" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+        
+  </div>
+    <div class="modal-footer">
+      <button  type= "submit"  form= "navCreateAcctForm" href="#!" class="modal-action modal-close teal text-lighten-1 btn-flat">Submit</button>
+    </div>
+  </div>
 
     <!-- Minified JQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

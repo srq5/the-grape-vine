@@ -11,7 +11,7 @@ function User(firstName, lastName,username,password,email){
 		e.preventDefault();
 		var username = $("#signInInput").val().trim();
 	//code to get users info from database
-	$.get("/api/user"+username, function(data){
+	$.get("/profile"+username, function(data){
 		//get back an html page
 		window.location.pathname=data;
 	});//ends ajax function
