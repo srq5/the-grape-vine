@@ -21,7 +21,7 @@
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo"><img src="./assets/images/wine-stamp.png" alt="wine stamp logo"><span>The GrapeVine</span></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#navSignInModal" id="navSignIn">Create User/Sign-in</a></li>
+                    <li><a href="#navSignInModal" class="navSignIn">Create User/Sign-in</a></li>
                     <li><a href="/profile">User Profile</a></li>
                     <li><a href="/reviews">Wine Reviews</a></li>
                     <li class="search">
@@ -30,7 +30,7 @@
                     </li>
                 </ul>
                 <ul id="slide-out" class="side-nav">
-                    <li><a href="#navSignInModal" id="navSignInMobile">Create User/Sign-in</a></li>
+                    <li><a href="#navSignInModal" class="navSignIn">Create User/Sign-in</a></li>
                     <li><a href="/profile">User Profile</a></li>
                     <li><a href="/reviews">Wine Reviews</a></li>
                     <li class="search">
@@ -59,41 +59,62 @@
     <div class="modal-content">
       <h4>Create An Account</h4>
       <div class="row">
-    <form class="col s12" id="navCreateAcctForm" action="/api/users" method="POST">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Alan" id="navFirstName" type="text" class="validate">
-          <label for="firstName">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="Breck" id="navLastName" type="text" class="validate">
-          <label for="lastName">Last Name</label>
-        </div>
+        <form class="col s12" id="navCreateAcctForm" action="/api/users" method="POST">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Alan" id="navFirstName" type="text" class="validate">
+              <label for="firstName">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Breck" id="navLastName" type="text" class="validate">
+              <label for="lastName">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="navUsername" type="text" class="validate">
+              <label for="username">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="navPassword" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="navEmail" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="navUsername" type="text" class="validate">
-          <label for="username">Username</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="navPassword" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="navEmail" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-    </form>
-  </div>
-        
-  </div>
+    </div>
     <div class="modal-footer">
       <button  type= "submit"  form= "navCreateAcctForm" href="#!" class="modal-action modal-close teal text-lighten-1 btn-flat">Submit</button>
+    </div>
+    <div class="modal-content">
+      <h4>Sign In</h4>
+      <div class="row">
+        <form class="col s12" id="navSignInForm" action="/profile" method="GET">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="navSignInInput" type="text" class="validate">
+              <label for="username">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="navSignInPassword" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button  type= "submit"  id="navSignInButton" form= "navSignInForm" href="#!" class="modal-action modal-close teal text-lighten-1 btn-flat">Submit</button>
     </div>
   </div>
 
@@ -114,10 +135,6 @@
         draggable: true, // Choose whether you can drag to open on touch screens,
         //onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
         //onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
-    });
-    //Materialize select box initialization
-    $(document).ready(function() {
-        $('select').material_select();
     });
     </script>
 </body>

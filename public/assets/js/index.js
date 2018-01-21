@@ -10,53 +10,95 @@ $(document).ready(function() {
 
     //initialize all modals           
     $('.modal').modal();
-
-    //code to handle what happens after the user clicks the  sign in button
-    $("#signInButton").on("click", function(e) {
-        e.preventDefault();
-        var username = $("#signInInput").val().trim();
-        //code to get users info from database
-        $.get("/profile" + username, function(data) {
-            //get back an html page
-            window.location.pathname = data;
-        }); //ends ajax function
-    }); //ends sign in button click function
-
-    //code to handle what happens if user clicks on create account
-    $("#createAcctModal").modal({
-            //callback function to run when modal is open
-            dismissible: true, // Modal can be dismissed by clicking outside of the modal
-            opacity: .5, // Opacity of modal background
-            inDuration: 300, // Transition in duration
-            outDuration: 200, // Transition out duration
-            startingTop: '4%', // Starting top style attribute
-            endingTop: '10%', // Ending top style attribute
-            ready: function(createAcctModal) {
-                $("#createAcctForm").submit(function(e) {
-                    e.preventDefault();
-                    var firstName = $("#firstName").val().trim();
-                    var lastName = $("#lastName").val().trim();
-                    var username = $("#username").val().trim();
-                    var password = $("#password").val().trim();
-                    var email = $("#email").val().trim();
-                    var newUser = new User(firstName, lastName, username, password, email);
-
-                    $.post("/api/users", newUser, function(data) {
-                        console.log("post succesful");
-                        //code to display new user profile
-                        $.get("/api/users" + username, function(data) {
-                            //actually display profile
-                        })
-                    })
-                })
-            }
-//            complete: function() { console.log('Closed'); } // Callback for Modal close
-
-        //code to display modal with form or open page with form
-
-    })
-
+    //initialize selection boxes 
+    $('select').material_select();
 });
+
+//code to handle what happens if user clicks on create account
+$("#createAcctModal").modal({
+    //callback function to run when modal is open
+    dismissible: true, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    inDuration: 300, // Transition in duration
+    outDuration: 200, // Transition out duration
+    startingTop: '4%', // Starting top style attribute
+    endingTop: '10%', // Ending top style attribute
+    ready: function(createAcctModal) {
+        $("#createAcctForm").submit(function(e) {
+            e.preventDefault();
+            var firstName = $("#firstName").val().trim();
+            var lastName = $("#lastName").val().trim();
+            var username = $("#username").val().trim();
+            var password = $("#password").val().trim();
+            var email = $("#email").val().trim();
+            var newUser = new User(firstName, lastName, username, password, email);
+
+            $.post("/api/users", newUser, function(data) {
+                console.log("post succesful");
+                //code to display new user profile
+                $.get("/api/users" + username, function(data) {
+                    //actually display profile
+                })
+            })
+        })
+    }
+    //code to display modal with form or open page with form
+
+})
+
+//code to handle what happens after the user clicks the  sign in button
+$("#signInButton").on("click", function(e) {
+    e.preventDefault();
+    var username = $("#signInInput").val().trim();
+    //code to get users info from database
+    $.get("/profile" + username, function(data) {
+        //get back an html page
+        window.location.pathname = data;
+    }); //ends ajax function
+}); //ends sign in button click function
+
+//code to handle what happens if user clicks on create account
+$("#navSignInModal").modal({
+    //callback function to run when modal is open
+    dismissible: true, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    inDuration: 300, // Transition in duration
+    outDuration: 200, // Transition out duration
+    startingTop: '4%', // Starting top style attribute
+    endingTop: '10%', // Ending top style attribute
+    ready: function(navSignInModal) {
+        $("#navCreateAcctForm").submit(function(e) {
+            e.preventDefault();
+            var firstName = $("#navFirstName").val().trim();
+            var lastName = $("#navLastName").val().trim();
+            var username = $("#navUsername").val().trim();
+            var password = $("#navPassword").val().trim();
+            var email = $("#navEmail").val().trim();
+            var newUser = new User(firstName, lastName, username, password, email);
+
+            $.post("/api/users", newUser, function(data) {
+                console.log("post succesful");
+                //code to display new user profile
+                $.get("/api/users" + username, function(data) {
+                    //actually display profile
+                })
+            })
+        })
+        $("#navSignInButton").on("click", function(e) {
+            e.preventDefault();
+            var username = $("#navSignInInput").val().trim();
+            //code to get users info from database
+            $.get("/profile" + username, function(data) {
+                //get back an html page
+                window.location.pathname = data;
+            }); //ends ajax function
+        }); //ends sign in button click function
+    }
+    //code to display modal with form or open page with form
+
+})
+
+
 //code to happen if user does a search
 //code to grab search terms
 switch (searchParam) {
