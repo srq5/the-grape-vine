@@ -117,36 +117,35 @@ app.get("/reviews", function(req, res){
 
 // })
 
-// app.get("/api/user/:username", function (req, res){
+app.get("/api/users/:username", function (req, res){
 
-//     db.User.findOne({
-//         where: {
-//             username: req.params.username
-//         },
-//         include: [db.Wine],
-//         include: [db.Review]
+    db.User.findOne({
+        where: {
+            username: req.params.username
+        },
+        include: [db.Wine],
+        include: [db.Review]
 
-//     }).then(function(results){
-//         res.json(results);
-//         //render in profile page
-//     });
+    }).then(function(results){
+        res.render("profiles", {});
+    });
 
-// });
+});
 
-// app.post("api/user", function (req, res){
+app.post("api/users", function (req, res){
 
-//     db.User.create({
-//         first_name: req.body.first_name,
-//         last_name: req.body.last_name,
-//         email: req.body.email,
-//         password: req.body.password,
-//         username: req.body.username,
+    db.User.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password,
+        username: req.body.username,
        
-//     }).then(function(results){
-//         res.json(results);
-//     });
+    }).then(function(results){
 
-// });
+    });
+
+});
 
 // app.put("/api/user", function(req, res){
 
