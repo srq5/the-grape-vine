@@ -10,7 +10,7 @@ function NewWine(title, country,description,price,points,variety,winery){
 }
 
 //on clicking add wine button
-$("#addWine").on("click", function(e){
+$("#addWineSubmit").on("click", function(e){
 	e.preventdefault();
 	//open modal with add form
 	var wineTitle = $("#addFormTitle").val().trim();
