@@ -62,7 +62,7 @@ After initial brainstorming, we narrowed down our ideas and landed on the wine a
 2. Sequelize
 3. Sequelize CLI
 	* Sets up model/migration structure from the terminal.
-	* Migrations provide a level of automation and conisistent process flow for setting up and make changes to database structure. 
+	* Migrations provide a level of automation and conisistent process flow for setting up and making changes to database structure. 
 2. Node/Express
 3. Materialize
 4. Handlebars
