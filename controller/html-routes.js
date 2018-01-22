@@ -14,16 +14,14 @@ module.exports = function(app) {
 
     app.get("/:username", function(req, res) {
         db.User.findOne({
-        where: {
-            username: req.params.username
-        },
-        // include: [db.Wine],
-        // include: [db.Review]
-
-    }).then(function(results){
-        console.log(results.dataValues);
-        res.render("profiles", results.dataValues);
-    });
+            where: {
+                username: req.params.username
+            },
+            include: [db.Wine, db.Review]
+        }).then(function(results){
+            console.log( results.dataValues );
+            res.render("profiles", { user: results.dataValues } );
+        });
     });
 
     app.get("/reviews", function(req, res) {

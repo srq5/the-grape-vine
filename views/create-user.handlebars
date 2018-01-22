@@ -3,7 +3,7 @@
     <div class="">
       <h4>Create An Account</h4>
       <div class="row">
-    <form class="col s12" id="createAcctForm" action="/api/users" method="POST">
+    <form class="col s12" id="createAcctForm">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Alan" id="firstName" type="text" class="validate">
@@ -32,12 +32,13 @@
           <label for="email">Email</label>
         </div>
       </div>
+      <div class="">
+      <button id="createAcctSubmit" type= "submit"  form= "createAcctForm" href="#" class="teal text-white btn-flat">Submit</button>
+    </div>
     </form>
   </div>
         
   </div>
-    <div class="">
-      <button  type= "submit"  form= "createAcctForm" href="#" class="teal text-lighten-1 btn-flat">Submit</button>
-    </div>
+    
   </div>
 </div>

@@ -15,38 +15,55 @@ $(document).ready(function() {
 });
 
 //code to handle what happens if user clicks on create account
-$("#createAcctModal").modal({
-    //callback function to run when modal is open
-    dismissible: true, // Modal can be dismissed by clicking outside of the modal
-    opacity: .5, // Opacity of modal background
-    inDuration: 300, // Transition in duration
-    outDuration: 200, // Transition out duration
-    startingTop: '4%', // Starting top style attribute
-    endingTop: '10%', // Ending top style attribute
-    ready: function(createAcctModal) {
-        $("#createsubmit").on("click", function(e) {
-            e.preventDefault();
-            var newUser = {
-            first_name:$("#firstName").val().trim(),
-            last_name:$("#lastName").val().trim(),
-            username:$("#username").val().trim(),
-            password:$("#password").val().trim(),
-            email:$("#email").val().trim()
-           };
-           console.log(newUser);
-            $.post("/api/users", newUser)
-            .then(function(data) {
-                console.log(data);
-                //code to display new user profile
-                // $.get("/api/users" + username, function(data) {
-                //     //actually display profile
-                // })
-            });
-        });
-    }
-    //code to display modal with form or open page with form
 
-})
+// $("#createAcctModal").modal({
+//     //callback function to run when modal is open
+//     dismissible: true, // Modal can be dismissed by clicking outside of the modal
+//     opacity: .5, // Opacity of modal background
+//     inDuration: 300, // Transition in duration
+//     outDuration: 200, // Transition out duration
+//     startingTop: '4%', // Starting top style attribute
+//     endingTop: '10%', // Ending top style attribute
+//     ready: function(createAcctModal) {
+       $("#createAcctSubmit").on("click", function(e) {
+           e.preventDefault();
+           var username = $("#username").val().trim();
+           console.log("It worked");
+           var newUser = {
+            firstName: $("#firstName").val().trim(),
+            lastName :$("#lastName").val().trim(),
+            username :$("#username").val().trim(),
+            password :$("#password").val().trim(),
+            email :$("#email").val().trim()
+           };
+           
+            console.log(newUser);
+
+           $.ajax({
+                type:"POST",
+                url: "/api/users",
+                data: newUser
+            }).done(function(data){
+                console.log("post succesful");
+
+                window.location = "/" + username;
+
+               //  $.get("/api/users/" + username, function(data) {
+               //     //actually display profile
+               // });
+            });
+               
+                 
+
+               
+               //code to display new user profile
+               
+           });
+      
+  // }
+   //code to display modal with form or open page with form
+
+//})
 
 //code to handle what happens after the user clicks the  sign in button
 $("#signInButton").on("click", function(e) {
@@ -103,50 +120,50 @@ $("#navSignInModal").modal({
 
 //code to happen if user does a search
 //code to grab search terms
-switch (searchParam) {
+// switch (searchParam) {
 
-    case "wine":
-        var searchInput = $("#wine-search").val().trim();
-        //code to get wine info from database
-        $.get("/api/wines/" + searchInput, function(data) {
-            //code to handle what happens if wine not found
-            if (!data) {
-                //code to ask user if they want to add wine
-                //switch to modal
-                window.prompt("Would you like to add this wine?");
-                //code redirecting user to add wine page/modal
+//     case "wine":
+//         var searchInput = $("#wine-search").val().trim();
+//         //code to get wine info from database
+//         $.get("/api/wines/" + searchInput, function(data) {
+//             //code to handle what happens if wine not found
+//             if (!data) {
+//                 //code to ask user if they want to add wine
+//                 //switch to modal
+//                 window.prompt("Would you like to add this wine?");
+//                 //code redirecting user to add wine page/modal
 
-            } else {
-                //comes back as a json object
-                //code to display result
+//             } else {
+//                 //comes back as a json object
+//                 //code to display result
 
-            }
-        })
-        break;
+//             }
+//         })
+//         break;
 
-    case "variety":
-        var searchInput = $("#wine-search").val().trim();
-        $.get("/api/variety/" + searchInput, function(data) {
-            if (!data) {
-                window.prompt("Would you like to add a wine of this varietal?");
+//     case "variety":
+//         var searchInput = $("#wine-search").val().trim();
+//         $.get("/api/variety/" + searchInput, function(data) {
+//             if (!data) {
+//                 window.prompt("Would you like to add a wine of this varietal?");
 
-            } else {
+//             } else {
 
-            }
-        })
-        break;
+//             }
+//         })
+//         break;
 
-    case "country":
-        var searchInput = $("#wine-search").val().trim();
-        $.get("/api/country/" + searchInput, function(data) {
-            if (!data) {
-                window.prompt("Would you like to add a wine from this country?");
+//     case "country":
+//         var searchInput = $("#wine-search").val().trim();
+//         $.get("/api/country/" + searchInput, function(data) {
+//             if (!data) {
+//                 window.prompt("Would you like to add a wine from this country?");
 
-            } else {
+//             } else {
 
-            }
-        })
-        break;
+//             }
+//         })
+//         break;
 
 
-} //ends switch
+// } //ends switch

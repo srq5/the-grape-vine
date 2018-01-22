@@ -124,26 +124,26 @@ app.get("/api/users/:username", function (req, res){
         where: {
             username: req.params.username
         },
-        include: [db.Wine],
-        include: [db.Review]
-
+        include: [db.Wine, db.Review]
     }).then(function(results){
-        res.render("profiles", {});
+        res.render("profiles", { user: results.dataValues } );
     });
 
 });
 
 app.post("/api/users", function (req, res){
-
+    console.log(req.body);
     db.User.create({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
         username: req.body.username
        
-    });
+    }).then(function(results){
+         res.end();
 
+});
 });
 
 // app.put("/api/user", function(req, res){
