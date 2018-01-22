@@ -9,7 +9,7 @@
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "database_test",s
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -17,7 +17,7 @@
     "use_env_variable": "JAWSDB_URL",
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "wine_dbs",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
