@@ -9,16 +9,6 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
 
-if(process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: null,
-    database: 'wine_db'
-  });
-};
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable], config);
