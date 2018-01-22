@@ -1,4 +1,4 @@
-# The GrapVine
+# The GrapeVine
 
 ### Overall Concept and motivation for development
 
@@ -10,7 +10,7 @@ Users can:
 
 1. Search for information about a wine (description, country of origin, points rating, price, varietal, and winery).
 2. Create a user profile.
-3. Add favorite wines to their profile, update their wines, or remove wines from their profile.
+3. Add favorite wines to their profile.
 
 
 ### Design Process 
@@ -30,9 +30,10 @@ Users can:
 
 1. Adobe XD
 2. Materialize
-3. MySQL
-4. Sequelize
-5. Node/Express
+3. Handlebars
+4. MySQL
+5. Sequelize
+6. Node/Express
 
 
 ### Purpose
