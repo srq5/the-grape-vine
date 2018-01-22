@@ -24,6 +24,10 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/add-wine", function(req, res) {
+        res.render("add-wine");
+    });
+
     app.get("/reviews", function(req, res) {
         db.Wine.findAll({
 
