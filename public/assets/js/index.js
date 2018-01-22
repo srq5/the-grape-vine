@@ -24,23 +24,25 @@ $("#createAcctModal").modal({
     startingTop: '4%', // Starting top style attribute
     endingTop: '10%', // Ending top style attribute
     ready: function(createAcctModal) {
-        $("#createAcctForm").submit(function(e) {
+        $("#createsubmit").on("click", function(e) {
             e.preventDefault();
-            var firstName = $("#firstName").val().trim();
-            var lastName = $("#lastName").val().trim();
-            var username = $("#username").val().trim();
-            var password = $("#password").val().trim();
-            var email = $("#email").val().trim();
-            var newUser = new User(firstName, lastName, username, password, email);
-
-            $.post("/api/users", newUser, function(data) {
-                console.log("post succesful");
+            var newUser = {
+            first_name:$("#firstName").val().trim(),
+            last_name:$("#lastName").val().trim(),
+            username:$("#username").val().trim(),
+            password:$("#password").val().trim(),
+            email:$("#email").val().trim()
+           };
+           console.log(newUser);
+            $.post("/api/users", newUser)
+            .then(function(data) {
+                console.log(data);
                 //code to display new user profile
-                $.get("/api/users" + username, function(data) {
-                    //actually display profile
-                })
-            })
-        })
+                // $.get("/api/users" + username, function(data) {
+                //     //actually display profile
+                // })
+            });
+        });
     }
     //code to display modal with form or open page with form
 
