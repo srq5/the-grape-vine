@@ -8,8 +8,18 @@ module.exports = function(app) {
         res.render("index");
     });
 
-    app.get("/profile", function(req, res) {
-        res.render("profiles");
+    app.get("/:username", function(req, res) {
+        db.User.findOne({
+        where: {
+            username: req.params.username
+        },
+        // include: [db.Wine],
+        // include: [db.Review]
+
+    }).then(function(results){
+        console.log(results.dataValues);
+        res.render("profiles", results.dataValues);
+    });
     });
 
     app.get("/reviews", function(req, res) {

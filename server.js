@@ -19,7 +19,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 
-// require("./controller/api-routes.js")(app);
+require("./controller/api-routes.js")(app);
 require("./controller/html-routes.js")(app);
 
 db.sequelize.sync().then(function() {
