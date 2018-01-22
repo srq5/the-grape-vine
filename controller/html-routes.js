@@ -8,6 +8,10 @@ module.exports = function(app) {
         res.render("index");
     });
 
+    app.get("/create-user", function(req, res) {
+        res.render("create-user");
+    });
+
     app.get("/profile", function(req, res) {
         res.render("profiles");
     });
