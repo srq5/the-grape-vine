@@ -8,6 +8,10 @@ module.exports = function(app) {
         res.render("index");
     });
 
+    app.get("/create-user", function(req, res) {
+        res.render("create-user");
+    });
+
     app.get("/:username", function(req, res) {
         db.User.findOne({
         where: {
