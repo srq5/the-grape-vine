@@ -14,3 +14,23 @@
 // 	});
 // 	});
 
+$("#varietal-selection").on("change",function(input){
+    input=$(this).val();
+
+    $.get("/api/variety"+input, function(data){
+        console.log("get info sent",input);
+    });
+});
+
+$("#location-selection").on("change",function(input){
+    input=$(this).val();
+
+    $.get("/api/country"+input, function(data){
+        console.log("get info sent",input);
+    });
+});
+
+var wineId= $(".add-wine").attr("id");
+$.post("/api/wine/add", function(data){
+    console.log("added new wine");
+});

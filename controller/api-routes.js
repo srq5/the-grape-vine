@@ -21,47 +21,47 @@ app.get("/reviews", function(req, res){
 
 });
 
-// app.get("/api/variety/:variety", function(req, res){
-//     db.Wine.findAll({
-//         where:{
-//             variety: req.params.variety
-//         }
-//     }).then(function(results){
-//         res.json(results);
-//         //render in reviews page
-//     });
-// });
+app.get("/api/variety/:variety", function(req, res){
+    db.Wine.findAll({
+        where:{
+            variety: req.params.variety
+        }
+    }).then(function(results){
+        res.json(results);
+        //render in reviews page
+    });
+});
 
-// app.get("/api/country/:country", function(req, res){
-//     db.Wine.findAll({
-//         where: {
-//             country: req.params.country
-//         }
-//     }).then(function(results){
-//         res.json(results);
-//         //render in reviews page
-//     });
-// });
+app.get("/api/country/:country", function(req, res){
+    db.Wine.findAll({
+        where: {
+            country: req.params.country
+        }
+    }).then(function(results){
+        res.json(results);
+        //render in reviews page
+    });
+});
 
-// app.post("api/wines", function(req, res){
+app.post("api/wines", function(req, res){
 
-//     db.Wine.create({
+    db.Wine.create({
 
-//         title: req.body.title,
-//         country: req.body.country,
-//         description: req.body.description,
-//         price: req.body.price,
-//         points: req.body.points,
-//         variety: req.body.variety,
-//         winery: req.body.winery,
+        title: req.body.title,
+        country: req.body.country,
+        description: req.body.description,
+        price: req.body.price,
+        points: req.body.points,
+        variety: req.body.variety,
+        winery: req.body.winery,
         
 
-//     }).then(function(results){
-//         res.json(results);
-//         //render in reviews page
-//     });
+    }).then(function(results){
+        res.json(results);
+        //render in reviews page
+    });
 
-// });
+});
 
 
 // app.put("/api/wines", function (req, res){
