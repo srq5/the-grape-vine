@@ -12,7 +12,7 @@ module.exports = function(app) {
         res.render("create-user");
     });
 
-    app.get("/:username", function(req, res) {
+    app.get("/user/:username", function(req, res) {
         db.User.findOne({
             where: {
                 username: req.params.username
@@ -31,9 +31,10 @@ module.exports = function(app) {
     app.get("/reviews", function(req, res) {
         db.Wine.findAll({
 
-                //        where: {
-                //            points: { $gt: 99 }
-                //        }
+        where: {
+            points: { $gt: 99}
+
+        }
             })
 
             .then(function(results) {

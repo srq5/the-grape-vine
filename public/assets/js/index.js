@@ -46,7 +46,7 @@ $(document).ready(function() {
             }).done(function(data){
                 console.log("post succesful");
 
-                window.location = "/" + username;
+                window.location = "/user/" + username;
 
                //  $.get("/api/users/" + username, function(data) {
                //     //actually display profile

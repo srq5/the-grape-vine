@@ -17,7 +17,7 @@
 $("#varietal-selection").on("change",function(input){
     input=$(this).val();
 
-    $.get("/api/variety"+input, function(data){
+    $.get("/reviews/variety/"+input, function(data){
         console.log("get info sent",input);
     });
 });
@@ -25,7 +25,7 @@ $("#varietal-selection").on("change",function(input){
 $("#location-selection").on("change",function(input){
     input=$(this).val();
 
-    $.get("/api/country"+input, function(data){
+    $.get("/reviews/country/"+input, function(data){
         console.log("get info sent",input);
     });
 });

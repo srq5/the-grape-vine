@@ -3,45 +3,66 @@ var db = require("../models");
 
 module.exports =function(app){
     
-app.get("/reviews", function(req, res){
+app.get("/reviews/:cond/:type", function(req, res){
+    var condition = req.params.cond;
+    switch(condition){
 
-    db.Wine.findAll({
+    //     case "":
 
-        where: {
-            points: { $gt: 99}
 
-        }
-    })
+    // db.Wine.findAll({
+
+    //     where: {
+    //         points: { $gt: 99}
+
+    //     }
+    // })
     
-    .then(function(results){
-        //render in reviews page
-        res.render("reviews", {wines:results});
-    });
+    // .then(function(results){
+    //     //render in reviews page
+    //     res.render("reviews", {wines:results});
+    // });
+    // break;
 
-
-});
-
-app.get("/api/variety/:variety", function(req, res){
+    case "variety":
+    console.log("starting");
     db.Wine.findAll({
         where:{
-            variety: req.params.variety
+            variety: req.params.type
         }
     }).then(function(results){
-        res.json(results);
+        res.render("reviews", {wines:results});
         //render in reviews page
     });
+    break;
+    case "country":
+    db.Wine.findAll({
+        where:{
+            country: req.params.type
+        }
+    }).then(function(results){
+        res.render("reviews", {wines:results});
+        //render in reviews page
+    });
+    break;
+
+}
 });
 
-app.get("/api/country/:country", function(req, res){
-    db.Wine.findAll({
-        where: {
-            country: req.params.country
-        }
-    }).then(function(results){
-        res.json(results);
-        //render in reviews page
-    });
-});
+// app.get("/api/variety/:variety", function(req, res){
+    
+// });
+
+// app.get("/api/country/:country", function(req, res){
+//     db.Wine.findAll({
+//         where: {
+//             country: req.params.country
+//         }
+//     }).then(function(results){
+//         res.json(results);
+//         //render in reviews page
+//     });
+// });
 
 app.post("api/wines", function(req, res){
 
@@ -118,18 +139,26 @@ app.post("api/wines", function(req, res){
 
 // })
 
-app.get("/api/users/:username", function (req, res){
-
-    db.User.findOne({
-        where: {
-            username: req.params.username
-        },
-        include: [db.Wine, db.Review]
+app.post("/api/users/:id/wines", function(req, res){
+    db.UserWine.create({
+        UserId: req.body.UserId,
+        WineId: req.body.WineId
     }).then(function(results){
-        res.render("profiles", { user: results.dataValues } );
-    });
-
+         res.json(results);
 });
+});
+// app.get("/api/users/:username", function (req, res){
+
+//     db.User.findOne({
+//         where: {
+//             username: req.params.username
+//         },
+//         include: [db.Wine, db.Review]
+//     }).then(function(results){
+//         res.render("profiles", { user: results.dataValues } );
+//     });
+
+// });
 
 app.post("/api/users", function (req, res){
     console.log(req.body);
