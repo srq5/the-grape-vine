@@ -57,7 +57,7 @@ app.get("/reviews/variety/:variety", function(req, res){
             variety: req.params.variety
         }
     }).then(function(results){
-        res.render("reviews", { wines: results });
+        res.json(results);
     });
 });
 
@@ -72,7 +72,7 @@ app.get("/reviews/country/:country", function(req, res){
     });
 });
 
-app.post("api/wines", function(req, res){
+app.post("/api/wines", function(req, res){
 
     db.Wine.create({
 
@@ -93,59 +93,59 @@ app.post("api/wines", function(req, res){
 });
 
 
-// app.put("/api/wines", function (req, res){
-//     db.Wine.update({
-//         title: req.body.title,
-//         country: req.body.country,
-//         description: req.body.description,
-//         price: req.body.price,
-//         points: req.body.points,
-//         variety: req.body.variety,
-//         winery: req.body.winery
-//     }, {
-//         where: {
-//             id: req.body.id
-//         }
-//     }).then(function(results){
-//         res.json(results);
-//         //render in reviews page
+app.put("/api/wines", function (req, res){
+    db.Wine.update({
+        title: req.body.title,
+        country: req.body.country,
+        description: req.body.description,
+        price: req.body.price,
+        points: req.body.points,
+        variety: req.body.variety,
+        winery: req.body.winery
+    }, {
+        where: {
+            id: req.body.id
+        }
+    }).then(function(results){
+        res.json(results);
+        //render in reviews page
 
-//     });
+    });
     
 
-// });
+});
 
-// app.get("api/wines/:id", function(req, res){
-//     db.Wine.findOne({
-//         where: {
-//             id: req.params.id
-//         },
+app.get("/api/wines/:id", function(req, res){
+    db.Wine.findOne({
+        where: {
+            id: req.params.id
+        },
 
-//         include: [db.Review]
-//     }).then(function(results){
-//     res.json(results);
-//     //render in reviews page
-//     })
-// })
+        include: [db.Review]
+    }).then(function(results){
+    res.json(results);
+    //render in reviews page
+    })
+})
 
-// app.delete("/api/wines/:id", function(req, res){
-//     db.Wine.destroy({
-//         where: {
-//             id: req.params.id
-//         }
-//     }).then(function(results){
-//         res.json(results);
-//     });
-// });
+app.delete("/api/wines/:id", function(req, res){
+    db.Wine.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results){
+        res.json(results);
+    });
+});
 
-// app.get("/api/user/:id", function(req, res){
+app.get("/api/user/:id", function(req, res){
 
-//     db.#.findAll({
+    db.#.findAll({
 
-//         where: 
-//     })
+        where: 
+    })
 
-// })
+})
 
 app.post("/api/users/:id/wines", function(req, res){
     db.UserWine.create({
@@ -183,34 +183,34 @@ app.post("/api/users", function (req, res){
 });
 });
 
-// app.put("/api/user", function(req, res){
+app.put("/api/user", function(req, res){
 
-//     db.User.update({
-//         first_name: req.body.first_name,
-//         last_name: req.body.last_name,
-//         email: req.body.email,
-//         password: req.body.password,
-//         username: req.body.username,
-//     }).then(function(results){
-//         res.json(results);
-//     });
+    db.User.update({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password,
+        username: req.body.username,
+    }).then(function(results){
+        res.json(results);
+    });
 
-// })
+})
 
-// //User can only delete from their own profile.
+//User can only delete from their own profile.
 
-// app.delete("/api/user/:username", function (req, res){
+app.delete("/api/user/:username", function (req, res){
 
-//     db.User.destroy({
+    db.User.destroy({
 
-//         where: {
-//             username: req.params.username
-//         }
+        where: {
+            username: req.params.username
+        }
         
-//     }).then(function(results){
-//         res.json(results);
-//     });
+    }).then(function(results){
+        res.json(results);
+    });
 
-// });
+});
 }
 
