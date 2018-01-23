@@ -3,66 +3,74 @@ var db = require("../models");
 
 module.exports =function(app){
     
-app.get("/reviews/:cond/:type", function(req, res){
-    var condition = req.params.cond;
-    switch(condition){
+// app.get("/reviews/:cond/:type", function(req, res){
+//     var condition = req.params.cond;
+//     switch(condition){
 
-    //     case "":
+//     //     case "":
 
 
-    // db.Wine.findAll({
+//     // db.Wine.findAll({
 
-    //     where: {
-    //         points: { $gt: 99}
+//     //     where: {
+//     //         points: { $gt: 99}
 
-    //     }
-    // })
+//     //     }
+//     // })
     
-    // .then(function(results){
-    //     //render in reviews page
-    //     res.render("reviews", {wines:results});
-    // });
-    // break;
+//     // .then(function(results){
+//     //     //render in reviews page
+//     //     res.render("reviews", {wines:results});
+//     // });
+//     // break;
 
-    case "variety":
-    console.log("starting");
-    db.Wine.findAll({
-        where:{
-            variety: req.params.type
-        }
-    }).then(function(results){
-        res.render("reviews", {wines:results});
-        //render in reviews page
-    });
-    break;
-    case "country":
-    db.Wine.findAll({
-        where:{
-            country: req.params.type
-        }
-    }).then(function(results){
-        res.render("reviews", {wines:results});
-        //render in reviews page
-    });
-    break;
-
-}
-});
-
-// app.get("/api/variety/:variety", function(req, res){
-    
-// });
-
-// app.get("/api/country/:country", function(req, res){
+//     case "variety":
+//     console.log("starting");
 //     db.Wine.findAll({
-//         where: {
-//             country: req.params.country
+//         where:{
+//             variety: req.params.type
 //         }
 //     }).then(function(results){
-//         res.json(results);
+//         res.render("reviews", {wines:results});
 //         //render in reviews page
 //     });
+//     break;
+//     case "country":
+//     db.Wine.findAll({
+//         where:{
+//             country: req.params.type
+//         }
+//     }).then(function(results){
+//         res.render("reviews", {wines:results});
+//         //render in reviews page
+//     });
+//     break;
+
+// }
 // });
+
+app.get("/reviews/variety/:variety", function(req, res){
+    
+    db.Wine.findAll({
+
+        where:{
+            variety: req.params.variety
+        }
+    }).then(function(results){
+        res.render("reviews", { wines: results });
+    });
+});
+
+app.get("/reviews/country/:country", function(req, res){
+    db.Wine.findAll({
+        where: {
+            country: req.params.country
+        }
+    }).then(function(results){
+        res.json(results);
+        //render in reviews page
+    });
+});
 
 app.post("api/wines", function(req, res){
 

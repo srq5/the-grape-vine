@@ -19,6 +19,7 @@ $("#varietal-selection").on("change",function(input){
 
     $.get("/reviews/variety/"+input, function(data){
         console.log("get info sent",input);
+        
     });
 });
 
