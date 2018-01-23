@@ -43,18 +43,18 @@
         <div class="row">
             {{#each wines}}
             <div class="col l4 m6 reviewsClass">
-                <div class="card">
-                    <div class="card-image"><img src="/assets/images/bottle-placeholder.png" alt="image placeholder">
-                        <span class="card-title">{{this.title}}</span>
+                <div class="card sticky-action">
+                    <div class="card-image">
+                        <img class="activator" src="/assets/images/bottle-placeholder.png" alt="image placeholder">
                     </div>
                     <div class="card-content">
-                        <div class="collapsible" data-collapsible="accordion">
-                            <h5 class="collapsible-header wine-type">{{this.variety}}</h5>
-                            <div class="collapsible-body">
-                                <p>{{this.description}}</p>
-                                <a id="add-{{this.id}}" class="add-wine white-text teal lighten-1 btn">Add</a>
-                            </div>
-                        </div>
+                        <span class="card-title activator">{{this.title}}<i class="material-icons right">more_vert</i></span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">{{this.title}}<i class="material-icons right">close</i></span>
+                        <h5 class="wine-type">{{this.variety}}</h5>
+                        <p>{{this.description}}</p>
+                        <a id="add-{{this.id}}" class="add-wine white-text teal lighten-1 btn">Add</a>
                     </div>
                 </div>
             </div>

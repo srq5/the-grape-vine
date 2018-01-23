@@ -12,8 +12,6 @@ $(document).ready(function() {
     $('.modal').modal();
     //initialize selection boxes 
     $('select').material_select();
-    //intialize collapsible wine reviews
-    $('.collapsible').collapsible();
   
 });
 
