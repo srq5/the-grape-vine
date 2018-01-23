@@ -31,7 +31,9 @@ $("#location-selection").on("change",function(input){
     });
 });
 
-var wineId= $(".add-wine").attr("id");
-$.post("/api/wine/add", function(data){
-    console.log("added new wine");
+$(".add-wine").on("click", function(){
+    var wineId= $(this).attr("id");
+    $.post("/api/wine/add", function(data){
+        console.log("added new wine");
+});
 });
