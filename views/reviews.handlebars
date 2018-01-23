@@ -48,10 +48,13 @@
                         <span class="card-title">{{this.title}}</span>
                     </div>
                     <div class="card-content">
-                        <h5 class="wine-type">{{this.variety}}</h5>
-                        <p>{{this.description}}</p>
-                        <a id="add-{{this.id}}" class="add-wine white-text teal lighten-1 btn">Add</a>
-
+                        <div class="collapsible" data-collapsible="accordion">
+                            <h5 class="collapsible-header wine-type">{{this.variety}}</h5>
+                            <div class="collapsible-body">
+                                <p>{{this.description}}</p>
+                                <a id="add-{{this.id}}" class="add-wine white-text teal lighten-1 btn">Add</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
